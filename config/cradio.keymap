@@ -36,21 +36,27 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            layers = <0 1 2 4 3>;
+            layers = <Q N S F O>;
             bindings = <&kp ESC>;
         };
 
         combo_bspace {
             timeout-ms = <150>;
             key-positions = <9 8>;
-            layers = <0 1 2 3 4>;
+            layers = <Q N S F O>;
             bindings = <&kp BACKSPACE>;
+        };
+
+        sunlock {
+            bindings = <&studio_unlock>;
+            key-positions = <10 19>;
+            layers = <F>;
         };
 
         bt_clr {
             bindings = <&bt BT_CLR>;
             key-positions = <20 21 28 29>;
-            layers = <3>;
+            layers = <F>;
         };
     };
 
@@ -111,9 +117,9 @@
         default_layer {
             bindings = <
             &kp Q        &kp W       &kp E       &kp R             &kp T             &kp Y        &kp U       &kp I        &kp O      &kp P
-            &kp A  &ht LCTRL S  &ht LALT D  &ht LWIN F       &ht LSHFT G       &ht RSHFT H   &ht LGUI J  &ht LALT K  &ht LCTRL L      &kp A
+            &kp A  &ht LCTRL S  &ht LALT D  &ht LWIN F       &ht LSHFT G       &ht RSHFT H   &ht LGUI J  &ht LALT K  &ht LCTRL L      &kp SEMICOLON
             &kp Z        &kp X       &kp C       &kp V          &kp FSLH             &kp B        &kp N       &kp M    &kp COMMA &kp PERIOD
-                                             &lt F TAB       &lt N SPACE       &lt S ENTER  &lt O SPACE
+                                             &lt F TAB       &lt N SPACE       &lt S ENTER  &lt O LSHFT
             >;
         };
 
