@@ -5,16 +5,19 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // 10
 
 #include <behaviors.dtsi>
+#include "behaviors/character_map.dtsi"
+#include "behaviors/send_string.dtsi"
+#include "behaviors/report.dtsi"
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define Q 0
-#define N 1
-#define S 2
-#define F 3
-#define O 4
+#define BAS 0
+#define NUM 1
+#define NAV 2
+#define FNC 3
+#define EXT 4
 #define MOUSE 5
 
 
@@ -37,26 +40,27 @@
             timeout-ms = <50>;
             key-positions = <0 1>;
             layers = <Q N S F O>;
+            layers = <BAS NUM NAV FNC EXT>;
             bindings = <&kp ESC>;
         };
 
         combo_bspace {
             timeout-ms = <150>;
             key-positions = <9 8>;
-            layers = <Q N S F O>;
+            layers = <BAS NUM NAV FNC EXT>;
             bindings = <&kp BACKSPACE>;
         };
 
         sunlock {
             bindings = <&studio_unlock>;
             key-positions = <10 19>;
-            layers = <F>;
+            layers = <FNC>;
         };
 
         bt_clr {
             bindings = <&bt BT_CLR>;
             key-positions = <20 21 28 29>;
-            layers = <F>;
+            layers = <FNC>;
         };
     };
 
@@ -84,18 +88,21 @@
 };
 
 / {
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
     chosen {
         zmk,charmap = &charmap_us;
+        zmk,battery = &vbatt;
     };
     behaviors {
         ht: hold_tap {
-            label = "hold_tap";
+            display-name = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
         mmv {
@@ -110,22 +117,23 @@
         };
     };
 
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "DEFAULT";
             bindings = <
             &kp Q        &kp W       &kp E       &kp R             &kp T             &kp Y        &kp U       &kp I        &kp O      &kp P
             &kp A  &ht LCTRL S  &ht LALT D  &ht LWIN F       &ht LSHFT G       &ht RSHFT H   &ht LGUI J  &ht LALT K  &ht LCTRL L      &kp SEMICOLON
             &kp Z        &kp X       &kp C       &kp V          &kp FSLH             &kp B        &kp N       &kp M    &kp COMMA &kp PERIOD
-                                             &lt F TAB       &lt N SPACE       &lt S ENTER  &lt O LSHFT
+                                             &lt FNC TAB       &lt NUM SPACE       &lt SYM ENTER  &ht LSHFT SPACE
             >;
         };
 
         num_layer {
+            display-name = "NUM & SYM";
             bindings = <
- &kp NUMBER_1                   &kp NUMBER_2            &kp NUMBER_3           &kp NUMBER_4         &kp NUMBER_5            &kp NUMBER_6      &kp NUMBER_7      &kp NUMBER_8         &kp NUMBER_9  &kp NUMBER_0
+        &kp N1                   &kp N2            &kp NUMBER_3           &kp NUMBER_4         &kp NUMBER_5            &kp NUMBER_6      &kp NUMBER_7      &kp NUMBER_8         &kp NUMBER_9  &kp NUMBER_0
        &trans         &ht LCTRL LEFT_BRACKET  &ht LALT RIGHT_BRACKET         &ht LGUI GRAVE  &ht LSHFT SEMICOLON    &ht RSHFT APOSTROPHE    &ht LGUI MINUS    &ht LALT EQUAL  &ht LCTRL BACKSLASH        &trans
     &kp LSHFT                         &trans    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS         &kp QUESTION               &kp COMMA     &kp LESS_THAN  &kp GREATER_THAN               &trans        &trans
                                                                       &trans                 &trans                      &trans                &trans
@@ -133,6 +141,7 @@
         };
 
         right_layer {
+            display-name = "NAVIGATION";
             bindings = <
     &trans  &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp C_PP  &kp C_PREV  &kp C_NEXT     &trans      &trans
 &lshift_dt  &trans        &trans        &trans      &trans  &kp LEFT    &kp DOWN      &kp UP  &kp RIGHT      &trans
@@ -142,6 +151,7 @@
         };
 
         fn_layer {
+            display-name = "FUNCTION";
             bindings = <
  &kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
  &trans  &trans  &trans  &trans      &kp F6      &kp F7  &trans   &trans   &trans   &trans
@@ -151,6 +161,7 @@
         };
 
         other_layer {
+            display-name = "NUM ROW SYMBOLS";
             bindings = <
  &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPS  &kp STAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
    &trans  &trans    &trans      &trans       &trans     &trans    &trans    &trans                &trans                 &trans
