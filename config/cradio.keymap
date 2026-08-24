@@ -39,7 +39,6 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            layers = <Q N S F O>;
             layers = <BAS NUM NAV FNC EXT>;
             bindings = <&kp ESC>;
         };
