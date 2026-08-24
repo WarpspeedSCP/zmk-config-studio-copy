@@ -17,8 +17,6 @@
 #define NMB 1
 #define NAV 2
 #define FNC 3
-#define EXT 4
-#define MOUSE 5
 
 
 // https://zmk.dev/docs/development/hardware-integration/soft-off-setup?advanced-methods=wakeup&kscan-type=dkscan
@@ -39,14 +37,14 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            layers = <BAS NMB NAV FNC EXT>;
+            layers = <BAS NMB NAV FNC>;
             bindings = <&kp ESC>;
         };
 
         combo_bspace {
             timeout-ms = <150>;
             key-positions = <9 8>;
-            layers = <BAS NMB NAV FNC EXT>;
+            layers = <BAS NMB NAV FNC>;
             bindings = <&kp BACKSPACE>;
         };
 
@@ -156,16 +154,6 @@
  &trans  &trans  &trans  &trans      &kp F6      &kp F7  &trans   &trans   &trans   &trans
  &trans  &trans  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans   &trans   &trans   &trans
                          &trans      &trans      &trans  &trans
-            >;
-        };
-
-        other_layer {
-            display-name = "NUM ROW SYMBOLS";
-            bindings = <
- &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPS  &kp STAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-   &trans  &trans    &trans      &trans       &trans     &trans    &trans    &trans                &trans                 &trans
-   &trans  &trans    &trans      &trans       &trans     &trans    &trans    &trans                &trans                 &trans
-                                 &trans       &trans     &trans    &trans
             >;
         };
     };
