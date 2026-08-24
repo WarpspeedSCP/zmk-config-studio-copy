@@ -124,13 +124,13 @@
             bindings = <
             &kp Q        &kp W       &kp E       &kp R             &kp T             &kp Y        &kp U       &kp I        &kp O      &kp P
             &kp A  &ht LCTRL S  &ht LALT D  &ht LWIN F       &ht LSHFT G       &ht RSHFT H   &ht LGUI J  &ht LALT K  &ht LCTRL L      &kp SEMICOLON
-            &kp Z        &kp X       &kp C       &kp V          &kp FSLH             &kp B        &kp N       &kp M    &kp COMMA &kp PERIOD
+            &kp Z        &kp X       &kp C       &kp V          &kp FSLH             &kp B        &kp N       &kp M       &kp COMMA   &kp PERIOD
                                              &lt FNC TAB       &lt NUM SPACE       &lt SYM ENTER  &ht LSHFT SPACE
             >;
         };
 
         num_layer {
-            display-name = "NUM & SYM";
+            display-name = "NUMBERS & SYMBOLS";
             bindings = <
         &kp N1                   &kp N2            &kp NUMBER_3           &kp NUMBER_4         &kp NUMBER_5            &kp NUMBER_6      &kp NUMBER_7      &kp NUMBER_8         &kp NUMBER_9  &kp NUMBER_0
        &trans         &ht LCTRL LEFT_BRACKET  &ht LALT RIGHT_BRACKET         &ht LGUI GRAVE  &ht LSHFT SEMICOLON    &ht RSHFT APOSTROPHE    &ht LGUI MINUS    &ht LALT EQUAL  &ht LCTRL BACKSLASH        &trans
