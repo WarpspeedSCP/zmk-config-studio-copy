@@ -125,7 +125,7 @@
             &kp Q        &kp W       &kp E       &kp R             &kp T             &kp Y        &kp U       &kp I        &kp O      &kp P
             &kp A  &ht LCTRL S  &ht LALT D  &ht LWIN F       &ht LSHFT G       &ht RSHFT H   &ht LGUI J  &ht LALT K  &ht LCTRL L      &kp SEMICOLON
             &kp Z        &kp X       &kp C       &kp V          &kp FSLH             &kp B        &kp N       &kp M       &kp COMMA   &kp PERIOD
-                                             &lt FNC TAB       &lt NMB SPACE       &lt SYM ENTER  &ht LSHFT SPACE
+                                             &lt FNC TAB       &lt NMB SPACE       &lt NAV ENTER  &ht LSHFT SPACE
             >;
         };
 
